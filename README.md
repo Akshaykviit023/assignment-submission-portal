@@ -25,23 +25,28 @@
 <pre>
 📁 assignment-portal
 ├── 📁 controllers
-│   ├── adminController.js
-│   └── userController.js
-├── 📁 middleware
-│   └── authMiddleware.js
+│   ├── admin-controllers.js
+│   └── user-controllers.js
+├── 📁 db
+│   └── connection.js
+├── 📁 middlewares
+│   └── auth-middleware.js
 ├── 📁 models
-│   ├── adminModel.js
-│   ├── assignmentModel.js
-│   └── userModel.js
+│   ├── Admin.js
+│   ├── Assignment.js
+│   └── User.js
 ├── 📁 routes
-│   ├── adminRoutes.js
-│   └── userRoutes.js
+│   ├── index.js
+│   ├── admin-routes.js
+│   └── user-routes.js
 ├── 📁 config
 │   └── db.js
 ├── 📁 utils
 │   └── validators.js
+│   └── token-manager.js
 ├── .env
-├── server.js
+├── app.js
+├── index.js
 └── package.json
 </pre>
 
@@ -56,26 +61,15 @@
 
 <h3>2. Clone the Repository</h3>
 <pre>
-<code>git clone https://github.com/your-username/assignment-portal.git
-cd assignment-portal</code>
+<code>git clone https://github.com/your-username/assignment-portal.git</code>
 </pre>
 
 <h3>3. Install Dependencies</h3>
 <pre><code>npm install</code></pre>
 
-<h3>4. Environment Variables</h3>
-<p>Create a <code>.env</code> file in the root directory and add the following configuration:</p>
-<pre>
-<code>
-PORT=5000
-MONGO_URI=&lt;your_mongodb_connection_uri&gt;
-JWT_SECRET=&lt;your_jwt_secret_key&gt;
-</code>
-</pre>
-
-<h3>5. Run the Application</h3>
+<h3>4. Run the Application</h3>
 <pre><code>npm run dev</code></pre>
-<p>The server will start on <a href="http://localhost:5000">http://localhost:5000</a>.</p>
+<p>The server will start on base URL <a href="http://localhost:3000/api/v1">http://localhost:3000/api/v1</a>.</p>
 
 <h2>API Endpoints</h2>
 <table border="1">
@@ -89,39 +83,57 @@ JWT_SECRET=&lt;your_jwt_secret_key&gt;
   </thead>
   <tbody>
     <tr>
-      <td>/api/users/register</td>
+      <td>/user/register</td>
       <td>POST</td>
       <td>Register a new user</td>
       <td>No</td>
     </tr>
     <tr>
-      <td>/api/users/login</td>
+      <td>/user/login</td>
       <td>POST</td>
       <td>Login as a user</td>
       <td>No</td>
     </tr>
     <tr>
-      <td>/api/users/upload</td>
+      <td>/user/upload</td>
       <td>POST</td>
       <td>Upload an assignment</td>
       <td>Yes (User)</td>
     </tr>
     <tr>
-      <td>/api/admins/register</td>
+      <td>/user/admins</td>
+      <td>GET</td>
+      <td>Fetch all admins</td>
+      <td>Yes (User)</td>
+    </tr>
+    <tr>
+      <td>/admin/register</td>
       <td>POST</td>
       <td>Register a new admin</td>
       <td>No</td>
     </tr>
     <tr>
-      <td>/api/admins/login</td>
+      <td>/admin/login</td>
       <td>POST</td>
       <td>Login as an admin</td>
       <td>No</td>
     </tr>
     <tr>
-      <td>/api/admins/assignments</td>
+      <td>/admin/assignments</td>
       <td>GET</td>
-      <td>Get all assignments for the admin</td>
+      <td>View assignments tagged to the admin</td>
+      <td>Yes (Admin)</td>
+    </tr>
+    <tr>
+      <td>/admin/assignments/:id/accept</td>
+      <td>POST</td>
+      <td>Accept an assignment</td>
+      <td>Yes (Admin)</td>
+    </tr>
+    <tr>
+      <td>/admin/assignments/:id/reject</td>
+      <td>POST</td>
+      <td>Reject an assignment</td>
       <td>Yes (Admin)</td>
     </tr>
   </tbody>
