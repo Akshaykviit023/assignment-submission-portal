@@ -61,7 +61,7 @@
 
 <h3>2. Clone the Repository</h3>
 <pre>
-<code>git clone https://github.com/your-username/assignment-portal.git</code>
+<code>[git clone https://github.com/your-username/assignment-portal.git](https://github.com/Akshaykviit023/assignment-submission-portal.git)</code>
 </pre>
 
 <h3>3. Install Dependencies</h3>
