@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assignment Submission Portal - README</title>
-</head>
-<body>
+
 <h1>📚 Assignment Submission Portal</h1>
 <p>
   This project is an <strong>Assignment Submission Portal</strong> built using <strong>Node.js</strong> and <strong>Express</strong> with <strong>MongoDB</strong> as the database. The portal allows users to upload assignments and provides a dashboard for admins to accept or reject submissions.
@@ -134,6 +127,3 @@ JWT_SECRET=&lt;your_jwt_secret_key&gt;
   </tbody>
 </table>
 
-
-</body>
-</html>
